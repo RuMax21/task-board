@@ -5,8 +5,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,css,scss,md}": [
-      "prettier --write"
+    "frontend/**/*.{ts,tsx,js,jsx,json,css,scss,md}": [
+      "npx prettier --write"
     ]
   },
   "repository": {
