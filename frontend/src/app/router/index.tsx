@@ -5,7 +5,7 @@ import { lazy } from 'react';
 
 // TODO: temp elements
 const LoginPage = lazy(() => import('@/pages/LoginPage'));
-const RegisterPage = () => <div>Register</div>;
+const RegisterPage = lazy(() => import('@/pages/RegisterPage'));
 const TasksPage = () => <div>Tasks</div>;
 
 export function Router() {

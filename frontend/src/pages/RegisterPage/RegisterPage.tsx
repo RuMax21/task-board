@@ -1,17 +1,17 @@
-import { useAuthStore } from '@/features/auth/model';
-import { LoginForm } from '@/features/auth/ui';
-import { ROUTES } from '@/shared/config';
 import { Navigate } from 'react-router';
+import { useAuthStore } from '@/features/auth/model';
+import { ROUTES } from '@/shared/config';
+import { RegisterForm } from '@/features/auth/ui';
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const user = useAuthStore(state => state.user);
   if (user) return <Navigate to={ROUTES.TASKS} replace />;
 
   return (
     <div>
       <div>
-        <h1>Login</h1>
-        <LoginForm />
+        <h1>Sign Up</h1>
+        <RegisterForm />
       </div>
     </div>
   );

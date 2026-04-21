@@ -34,7 +34,7 @@ export function LoginForm() {
 
       <p>
         Don't have an account yet?
-        <Link to={ROUTES.REGISTER}>Sign Up</Link>
+        <Link to={ROUTES.REGISTER}>Sign In</Link>
       </p>
     </form>
   );
