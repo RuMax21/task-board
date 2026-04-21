@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router';
-import { ROUTES } from './routes';
+import { ROUTES } from '../../shared/config/routes';
 import { PrivateRoute } from './PrivateRoute';
+import { lazy } from 'react';
 
 // TODO: temp elements
-const LoginPage = () => <div>Login</div>;
+const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const RegisterPage = () => <div>Register</div>;
 const TasksPage = () => <div>Tasks</div>;
 

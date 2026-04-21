@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router';
 import { tokenStorage } from '@/features/auth/lib';
 import { useAuthStore } from '@/features/auth/model';
-import { ROUTES } from './routes';
+import { ROUTES } from '@/shared/config';
 
 export function PrivateRoute() {
   const user = useAuthStore(state => state.user);
