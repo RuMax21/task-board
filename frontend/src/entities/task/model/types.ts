@@ -57,3 +57,22 @@ export interface RejectAssignmentRequest {
   comment?: string;
   blockAssigner?: boolean;
 }
+
+export interface UpdateTaskVariables {
+  id: string;
+  data: UpdateTaskRequest;
+}
+
+export interface UpdateTaskContext {
+  prevData: TaskListResponse | undefined;
+}
+
+export interface UpdateTaskStatusVariables {
+  id: string;
+  data: UpdateTaskStatusRequest;
+}
+
+export interface RejectTaskVariables {
+  id: string;
+  data: RejectAssignmentRequest;
+}

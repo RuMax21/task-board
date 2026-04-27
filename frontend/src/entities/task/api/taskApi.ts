@@ -2,10 +2,11 @@ import { apiClient } from '@/shared/api';
 import type {
   CreateTaskRequest,
   RejectAssignmentRequest,
+  RejectTaskVariables,
   Task,
   TaskListResponse,
-  UpdateTaskRequest,
-  UpdateTaskStatusRequest,
+  UpdateTaskStatusVariables,
+  UpdateTaskVariables,
 } from '../model';
 
 export const getListTasks = async (): Promise<TaskListResponse> => {
@@ -13,10 +14,8 @@ export const getListTasks = async (): Promise<TaskListResponse> => {
   return res.data;
 };
 
-export const createTask = async (
-  data: CreateTaskRequest,
-): Promise<CreateTaskRequest> => {
-  const res = await apiClient.post<CreateTaskRequest>('/tasks', data);
+export const createTask = async (data: CreateTaskRequest): Promise<Task> => {
+  const res = await apiClient.post<Task>('/tasks', data);
   return res.data;
 };
 
@@ -25,23 +24,22 @@ export const getTaskById = async (id: string): Promise<Task> => {
   return res.data;
 };
 
-export const replaceTask = async (
-  id: string,
-  data: UpdateTaskRequest,
-): Promise<Task> => {
+export const replaceTask = async ({
+  id,
+  data,
+}: UpdateTaskVariables): Promise<Task> => {
   const res = await apiClient.put<Task>(`/tasks/${id}`, data);
   return res.data;
 };
 
-export const deleteTask = async (id: string): Promise<boolean> => {
-  const res = await apiClient.delete<boolean>(`/tasks/${id}`);
-  return res.data;
+export const removeTask = async (id: string): Promise<void> => {
+  await apiClient.delete<boolean>(`/tasks/${id}`);
 };
 
-export const updateTaskStatus = async (
-  id: string,
-  data: UpdateTaskStatusRequest,
-): Promise<Task> => {
+export const updateTaskStatus = async ({
+  id,
+  data,
+}: UpdateTaskStatusVariables): Promise<Task> => {
   const res = await apiClient.patch<Task>(`/tasks/${id}/assignee-status`, data);
   return res.data;
 };
@@ -51,10 +49,10 @@ export const approveAssignment = async (id: string): Promise<Task> => {
   return res.data;
 };
 
-export const rejectAssignment = async (
-  id: string,
-  data: RejectAssignmentRequest,
-): Promise<Task> => {
+export const rejectAssignment = async ({
+  id,
+  data,
+}: RejectTaskVariables): Promise<Task> => {
   const res = await apiClient.post<Task>(
     `/tasks/${id}/assignment/reject`,
     data,
