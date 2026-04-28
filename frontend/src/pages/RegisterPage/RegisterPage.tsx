@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router';
-import { useAuthStore } from '@/features/auth/model';
+import { useAuthStore } from '@/features/Auth/model';
 import { ROUTES } from '@/shared/config';
-import { RegisterForm } from '@/features/auth/ui';
+import { RegisterForm } from '@/features/Auth/ui';
 
 export default function RegisterPage() {
   const user = useAuthStore(state => state.user);

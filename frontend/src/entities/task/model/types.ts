@@ -1,8 +1,12 @@
 import type { Tag } from '@/entities/tag';
+import type { PRIORITIES, STATUSES, VISIBILITIES } from './constants';
 
-export type TaskStatus = 'TODO' | 'IN_PROGRESS' | 'DONE';
-export type TaskPriority = 'LOW' | 'MEDIUM' | 'HIGH';
-export type TaskVisibility = 'ONLY_ME' | 'LIST' | 'ANYONE';
+// export type TaskStatus = 'TODO' | 'IN_PROGRESS' | 'DONE';
+export type TaskStatus = (typeof STATUSES)[number];
+// export type TaskPriority = 'LOW' | 'MEDIUM' | 'HIGH';
+export type TaskPriority = (typeof PRIORITIES)[number];
+// export type TaskVisibility = 'ONLY_ME' | 'LIST' | 'ANYONE';
+export type TaskVisibility = (typeof VISIBILITIES)[number];
 export type AssignedStatus = 'NONE' | 'PENDING' | 'APPROVED' | 'REJECTED';
 
 export interface Task {

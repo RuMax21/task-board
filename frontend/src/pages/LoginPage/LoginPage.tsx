@@ -1,5 +1,5 @@
-import { useAuthStore } from '@/features/auth/model';
-import { LoginForm } from '@/features/auth/ui';
+import { useAuthStore } from '@/features/Auth/model';
+import { LoginForm } from '@/features/Auth/ui';
 import { ROUTES } from '@/shared/config';
 import { Navigate } from 'react-router';
 

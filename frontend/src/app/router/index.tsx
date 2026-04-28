@@ -6,7 +6,8 @@ import { lazy } from 'react';
 // TODO: temp elements
 const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'));
-const TasksPage = () => <div>Tasks</div>;
+const CreateTaskPage = lazy(() => import('@/pages/CreateTaskPage'));
+const TaskPage = lazy(() => import('@/pages/TaskPage'));
 
 export function Router() {
   return (
@@ -15,7 +16,8 @@ export function Router() {
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
 
       <Route element={<PrivateRoute />}>
-        <Route path={ROUTES.TASKS} element={<TasksPage />} />
+        <Route path={ROUTES.TASKS} element={<TaskPage />} />
+        <Route path={ROUTES.CREATE_TASK} element={<CreateTaskPage />} />
       </Route>
     </Routes>
   );

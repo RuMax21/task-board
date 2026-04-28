@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router';
-import { tokenStorage } from '@/features/auth/lib';
-import { useAuthStore } from '@/features/auth/model';
+import { tokenStorage } from '@/features/Auth/lib';
+import { useAuthStore } from '@/features/Auth/model';
 import { ROUTES } from '@/shared/config';
 
 export function PrivateRoute() {

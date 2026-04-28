@@ -5,6 +5,10 @@ import type {
   TaskVisibility,
 } from './types';
 
+export const STATUSES = ['TODO', 'IN_PROGRESS', 'DONE'] as const;
+export const PRIORITIES = ['LOW', 'MEDIUM', 'HIGH'] as const;
+export const VISIBILITIES = ['ONLY_ME', 'LIST', 'ANYONE'] as const;
+
 export const TASK_STATUS_LABELS: Record<TaskStatus, string> = {
   TODO: 'To do',
   IN_PROGRESS: 'In progress',
@@ -29,3 +33,13 @@ export const TASK_VISIBILITY_LABELS: Record<TaskVisibility, string> = {
   LIST: 'According to the list',
   ANYONE: 'Everyone',
 };
+
+export const STATUS_OPTIONS = Object.entries(TASK_STATUS_LABELS).map(
+  ([value, label]) => ({ value, label }),
+);
+export const PRIORITY_OPTIONS = Object.entries(TASK_PRIORITY_LABELS).map(
+  ([value, label]) => ({ value, label }),
+);
+export const VISIBILITY_OPTIONS = Object.entries(TASK_VISIBILITY_LABELS).map(
+  ([value, label]) => ({ value, label }),
+);
