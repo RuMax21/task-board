@@ -13,7 +13,7 @@ export function CreateTaskForm({
   onSubmit,
   isSubmitting,
   onCancel,
-}: CreateTaskFormProps) {
+}: CreateTaskFormProps): React.JSX.Element {
   const { form, handleSubmit, errors } = useCreateTaskForm({
     defaultValues,
     onSubmit,
