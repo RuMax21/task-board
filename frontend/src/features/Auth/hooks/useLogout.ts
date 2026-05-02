@@ -9,7 +9,7 @@ export const useLogout = () => {
   const logout = useAuthStore(state => state.logout);
   const navigate = useNavigate();
 
-  return () => {
+  return (): void => {
     tokenStorage.remove();
     logout();
     queryClient.clear();

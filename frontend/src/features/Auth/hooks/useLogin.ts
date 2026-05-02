@@ -4,8 +4,9 @@ import toast from 'react-hot-toast';
 import { useAuthStore, type LoginRequest } from '../model';
 import { login } from '../api';
 import { mapJwtToUser, parseJwt, tokenStorage } from '../lib';
+import type { UseLoginReturn } from './types';
 
-export const useLogin = () => {
+export const useLogin = (): UseLoginReturn => {
   const queryClient = useQueryClient();
   const setUser = useAuthStore(state => state.setUser);
   const navigate = useNavigate();
@@ -25,9 +26,11 @@ export const useLogin = () => {
       toast.success('Successful login');
       navigate('/');
     },
-    onError: (error: any) => {
-      const message = error.response?.data?.message || 'Login error';
-      toast.error(message);
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        const message = error.response?.data?.message || 'Login error';
+        toast.error(message);
+      }
     },
   });
 };

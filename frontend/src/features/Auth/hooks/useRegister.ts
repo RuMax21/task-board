@@ -4,8 +4,9 @@ import toast from 'react-hot-toast';
 import { useAuthStore, type RegisterRequest } from '../model';
 import { register } from '../api';
 import { mapJwtToUser, parseJwt, tokenStorage } from '../lib';
+import type { UseRegisterReturn } from './types';
 
-export const useRegister = () => {
+export const useRegister = (): UseRegisterReturn => {
   const queryClient = useQueryClient();
   const setUser = useAuthStore(state => state.setUser);
   const navigate = useNavigate();
@@ -25,9 +26,11 @@ export const useRegister = () => {
       toast.success('Successful registration');
       navigate('/');
     },
-    onError: (error: any) => {
-      const message = error.response?.data?.message || 'Registration error';
-      toast.error(message);
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        const message = error.response?.data?.message || 'Registration error';
+        toast.error(message);
+      }
     },
   });
 };
