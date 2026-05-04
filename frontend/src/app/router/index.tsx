@@ -8,6 +8,7 @@ const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'));
 const CreateTaskPage = lazy(() => import('@/pages/CreateTaskPage'));
 const TaskPage = lazy(() => import('@/pages/TaskPage'));
+const TaskDetailsPage = lazy(() => import('@/pages/TaskDetailsPage'));
 
 export function Router() {
   return (
@@ -18,6 +19,7 @@ export function Router() {
       <Route element={<PrivateRoute />}>
         <Route path={ROUTES.TASKS} element={<TaskPage />} />
         <Route path={ROUTES.CREATE_TASK} element={<CreateTaskPage />} />
+        <Route path={ROUTES.TASK_DETAILS} element={<TaskDetailsPage />} />
       </Route>
     </Routes>
   );

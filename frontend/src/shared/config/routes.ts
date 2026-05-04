@@ -3,4 +3,5 @@ export const ROUTES = {
   REGISTER: '/register',
   TASKS: '/tasks',
   CREATE_TASK: '/tasks/create',
+  TASK_DETAILS: '/tasks/:id',
 };
