@@ -7,13 +7,14 @@ import {
   STATUS_OPTIONS,
   VISIBILITY_OPTIONS,
 } from '@/entities/task/model';
+import type { ReactElement } from 'react';
 
 export function CreateTaskForm({
   defaultValues,
   onSubmit,
   isSubmitting,
   onCancel,
-}: CreateTaskFormProps): React.JSX.Element {
+}: CreateTaskFormProps): ReactElement {
   const { form, handleSubmit, errors } = useCreateTaskForm({
     defaultValues,
     onSubmit,

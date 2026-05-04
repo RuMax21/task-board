@@ -2,8 +2,9 @@ import { Link } from 'react-router';
 import { Button, FormField } from '@/shared/ui';
 import { useRegisterForm } from './useRegisterForm';
 import { ROUTES } from '@/shared/config';
+import type { ReactElement } from 'react';
 
-export function RegisterForm(): React.JSX.Element {
+export function RegisterForm(): ReactElement {
   const { form, onSubmit, error, isLoading } = useRegisterForm();
   const {
     register,

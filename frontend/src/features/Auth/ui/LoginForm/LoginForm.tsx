@@ -2,8 +2,9 @@ import { ROUTES } from '@/shared/config';
 import { Button, FormField } from '@/shared/ui';
 import { Link } from 'react-router';
 import { useLoginForm } from './useLoginForm';
+import type { ReactElement } from 'react';
 
-export function LoginForm(): React.JSX.Element {
+export function LoginForm(): ReactElement {
   const { form, onSubmit, error, isLoading } = useLoginForm();
   const {
     register,
