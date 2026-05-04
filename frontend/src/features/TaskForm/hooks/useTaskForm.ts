@@ -1,15 +1,15 @@
 import { useForm } from 'react-hook-form';
-import { createTaskSchema, type CreateTaskData } from '../model/schema';
+import { taskFormSchema, type TaskFormData } from '../model/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { UseCreateTaskFormReturn, UseCreateTaskOptions } from './types';
 import type { CreateTaskRequest } from '@/entities/task/model';
 
-export function useCreateTaskForm({
+export function useTaskForm({
   defaultValues,
   onSubmit,
 }: UseCreateTaskOptions): UseCreateTaskFormReturn {
-  const form = useForm<CreateTaskData>({
-    resolver: zodResolver(createTaskSchema),
+  const form = useForm<TaskFormData>({
+    resolver: zodResolver(taskFormSchema),
     defaultValues: {
       title: '',
       description: '',

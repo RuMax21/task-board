@@ -1,8 +1,8 @@
 import type { CreateTaskRequest } from '@/entities/task/model';
-import type { CreateTaskData } from './schema';
+import type { TaskFormData } from './schema';
 
-export interface CreateTaskFormProps {
-  defaultValues?: Partial<CreateTaskData>;
+export interface TaskFormProps {
+  defaultValues?: Partial<TaskFormData>;
   onSubmit: (data: CreateTaskRequest) => void;
   isSubmitting: boolean;
   onCancel: () => void;

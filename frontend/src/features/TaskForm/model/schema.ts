@@ -1,7 +1,7 @@
 import z from 'zod';
 import { PRIORITIES, STATUSES, VISIBILITIES } from '@/entities/task/model';
 
-export const createTaskSchema = z.object({
+export const taskFormSchema = z.object({
   title: z.string().min(2, 'Title is required'),
   description: z.string().optional(),
   status: z.enum(STATUSES).optional(),
@@ -9,4 +9,4 @@ export const createTaskSchema = z.object({
   visibility: z.enum(VISIBILITIES).optional(),
 });
 
-export type CreateTaskData = z.infer<typeof createTaskSchema>;
+export type TaskFormData = z.infer<typeof taskFormSchema>;

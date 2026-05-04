@@ -1,5 +1,5 @@
-import type { CreateTaskFormProps } from '../model';
-import { useCreateTaskForm } from '../hooks';
+import type { TaskFormProps } from '../model';
+import { useTaskForm } from '../hooks';
 import { Button, FormField } from '@/shared/ui';
 import { FormSelect } from '@/shared/ui/FormSelect';
 import {
@@ -9,13 +9,13 @@ import {
 } from '@/entities/task/model';
 import type { ReactElement } from 'react';
 
-export function CreateTaskForm({
+export function TaskForm({
   defaultValues,
   onSubmit,
   isSubmitting,
   onCancel,
-}: CreateTaskFormProps): ReactElement {
-  const { form, handleSubmit, errors } = useCreateTaskForm({
+}: TaskFormProps): ReactElement {
+  const { form, handleSubmit, errors } = useTaskForm({
     defaultValues,
     onSubmit,
   });
