@@ -15,7 +15,7 @@ export default function EditTaskPage(): ReactElement {
 
   const handleSubmit = (data: UpdateTaskRequest): void => {
     updateTask(
-      { id: id!, data },
+      { id: id!, data: { ...data, viewerUserIds: task?.viewerUserIds ?? [] } },
       {
         onSuccess: () => {
           navigate(ROUTE_PATHS.editTask(id!));
