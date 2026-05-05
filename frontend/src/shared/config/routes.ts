@@ -8,5 +8,6 @@ export const ROUTES = {
 };
 
 export const ROUTE_PATHS = {
-  editTask: (id: string): string => `/tasks/${id}`,
+  editTask: (id: string): string => `/tasks/${id}/edit`,
+  taskDetails: (id: string): string => `/tasks/${id}`,
 };

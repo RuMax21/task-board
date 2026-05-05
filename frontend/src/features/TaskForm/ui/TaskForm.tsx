@@ -8,6 +8,7 @@ import {
   VISIBILITY_OPTIONS,
 } from '@/entities/task/model';
 import type { ReactElement } from 'react';
+import { useLanguage } from '@/shared/i18n';
 
 export function TaskForm({
   defaultValues,
@@ -20,44 +21,45 @@ export function TaskForm({
     onSubmit,
   });
   const { register } = form;
+  const { text } = useLanguage();
 
   return (
     <form onSubmit={handleSubmit}>
       <FormField
-        label="Title"
-        placeholder="Enter the task name"
+        label={text.task.form.titleLabel}
+        placeholder={text.task.form.titlePlaceholder}
         error={errors.title?.message}
         {...register('title')}
       />
       <FormField
-        label="Description"
-        placeholder="Enter the task description"
+        label={text.task.form.descriptionLabel}
+        placeholder={text.task.form.descriptionPlaceholder}
         error={errors.description?.message}
         {...register('description')}
       />
 
       <FormSelect
-        label="Status"
+        label={text.task.form.statusLabel}
         options={STATUS_OPTIONS}
         {...register('status')}
       />
       <FormSelect
-        label="Priority"
+        label={text.task.form.priorityLabel}
         options={PRIORITY_OPTIONS}
         {...register('priority')}
       />
       <FormSelect
-        label="Visibility"
+        label={text.task.form.visibilityLabel}
         options={VISIBILITY_OPTIONS}
         {...register('visibility')}
       />
 
       <div>
         <Button type="button" onClick={onCancel}>
-          Cancel
+          {text.common.btn.cancel}
         </Button>
         <Button type="submit" disabled={isSubmitting}>
-          Save
+          {text.common.btn.save}
         </Button>
       </div>
     </form>

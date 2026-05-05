@@ -3,8 +3,10 @@ import { Button, FormField } from '@/shared/ui';
 import { Link } from 'react-router';
 import { useLoginForm } from './useLoginForm';
 import type { ReactElement } from 'react';
+import { useLanguage } from '@/shared/i18n';
 
 export function LoginForm(): ReactElement {
+  const { text } = useLanguage();
   const { form, onSubmit, error, isLoading } = useLoginForm();
   const {
     register,
@@ -15,27 +17,27 @@ export function LoginForm(): ReactElement {
   return (
     <form onSubmit={handleSubmit(onSubmit)} method="post">
       <FormField
-        label="Nickname"
-        placeholder="nickname"
+        label={text.auth.form.nicknameLabel}
+        placeholder={text.auth.form.nicknamePlaceholder}
         error={errors.nickname}
         {...register('nickname')}
       />
 
       <FormField
-        label="Password"
+        label={text.auth.form.passwordLabel}
         type="password"
-        placeholder="••••••••"
+        placeholder={text.auth.form.passwordPlaceholder}
         error={errors.password}
         {...register('password')}
       />
 
       <Button type="submit" disabled={isLoading}>
-        {isLoading ? 'Login...' : 'Login'}
+        {isLoading ? text.common.processing.logining : text.common.btn.login}
       </Button>
 
       <p>
-        Don't have an account yet?
-        <Link to={ROUTES.REGISTER}>Sign In</Link>
+        {text.auth.dontHaveAccount}
+        <Link to={ROUTES.REGISTER}>{text.auth.signup}</Link>
       </p>
     </form>
   );

@@ -18,7 +18,7 @@ export default function EditTaskPage(): ReactElement {
       { id: id!, data: { ...data, viewerUserIds: task?.viewerUserIds ?? [] } },
       {
         onSuccess: () => {
-          navigate(ROUTE_PATHS.editTask(id!));
+          navigate(ROUTE_PATHS.taskDetails(id!));
         },
       },
     );

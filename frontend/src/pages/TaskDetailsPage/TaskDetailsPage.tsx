@@ -1,8 +1,10 @@
 import { TaskDetails } from '@/features/TaskDetails';
 import { useTaskDetails } from '@/features/TaskDetails/hooks/useTaskDetails';
+import { useLanguage } from '@/shared/i18n';
 import type { ReactElement } from 'react';
 
 export default function TaskDetailsPage(): ReactElement {
+  const { text } = useLanguage();
   const {
     task,
     isLoading,
@@ -13,8 +15,8 @@ export default function TaskDetailsPage(): ReactElement {
     isRemoving,
   } = useTaskDetails();
 
-  if (isLoading) return <p>Loading..</p>;
-  if (!task || error) return <p>Task not found</p>;
+  if (isLoading) return <p>{text.common.loading}</p>;
+  if (!task || error) return <p>{text.task.notFound}</p>;
 
   return (
     <TaskDetails
