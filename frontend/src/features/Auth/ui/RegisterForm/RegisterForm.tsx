@@ -3,8 +3,10 @@ import { Button, FormField } from '@/shared/ui';
 import { useRegisterForm } from './useRegisterForm';
 import { ROUTES } from '@/shared/config';
 import type { ReactElement } from 'react';
+import { useLanguage } from '@/shared/i18n';
 
 export function RegisterForm(): ReactElement {
+  const { text } = useLanguage();
   const { form, onSubmit, error, isLoading } = useRegisterForm();
   const {
     register,
@@ -15,40 +17,42 @@ export function RegisterForm(): ReactElement {
   return (
     <form onSubmit={handleSubmit(onSubmit)} method="post">
       <FormField
-        label="Nickname"
-        placeholder="nickname"
+        label={text.auth.form.nicknameLabel}
+        placeholder={text.auth.form.nicknamePlaceholder}
         error={errors.nickname}
         {...register('nickname')}
       />
 
       <FormField
-        label="Email"
-        placeholder="example@gmail.com"
+        label={text.auth.form.emailLabel}
+        placeholder={text.auth.form.emailPlaceholder}
         error={errors.email}
         {...register('email')}
       />
 
       <FormField
-        label="Password"
-        placeholder="••••••••"
+        label={text.auth.form.passwordLabel}
+        placeholder={text.auth.form.passwordPlaceholder}
         error={errors.password}
         {...register('password')}
       />
 
       <FormField
-        label="Confirm password"
-        placeholder="••••••••"
+        label={text.auth.form.confirmPasswordLabel}
+        placeholder={text.auth.form.passwordPlaceholder}
         error={errors.confirmPassword}
         {...register('confirmPassword')}
       />
 
       <Button type="submit" disabled={isLoading}>
-        {isLoading ? 'Register...' : 'Register'}
+        {isLoading
+          ? text.common.processing.registering
+          : text.common.btn.register}
       </Button>
 
       <p>
-        Already have an account?
-        <Link to={ROUTES.LOGIN}>Sign Up</Link>
+        {text.auth.haveAccount}
+        <Link to={ROUTES.LOGIN}>{text.auth.login}</Link>
       </p>
     </form>
   );
