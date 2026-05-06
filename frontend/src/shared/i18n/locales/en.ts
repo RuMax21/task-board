@@ -1,5 +1,3 @@
-import { register } from '@/features/Auth/api';
-
 export const en = {
   common: {
     processing: {
