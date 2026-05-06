@@ -49,4 +49,8 @@ export const en = {
       confirmPasswordLabel: 'Confirm password',
     },
   },
+
+  error: {
+    noTasks: 'No found tasks',
+  },
 } as const;

@@ -26,16 +26,14 @@ export function KanbanBoard({ tasks, onTaskClick }: KanbanProps): ReactElement {
 
   return (
     <DragDropProvider onDragEnd={handleDragEnd}>
-      <div>
-        {STATUSES.map(status => (
-          <KanbanColumn
-            key={status}
-            status={status}
-            tasks={tasks.filter(t => t.status === status)}
-            onTaskClick={onTaskClick}
-          />
-        ))}
-      </div>
+      {STATUSES.map(status => (
+        <KanbanColumn
+          key={status}
+          status={status}
+          tasks={tasks.filter(t => t.status === status)}
+          onTaskClick={onTaskClick}
+        />
+      ))}
     </DragDropProvider>
   );
 }
