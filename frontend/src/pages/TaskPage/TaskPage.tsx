@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Button } from '@/shared/ui';
 import { useLanguage } from '@/shared/i18n';
 import { ROUTE_PATHS, ROUTES } from '@/shared/config';
-import { KanbanBoard } from '@/widget/KanbanBoard';
+import { KanbanBoard } from '@/widgets/KanbanBoard';
 
 export default function TaskPage(): React.ReactNode {
   const { text } = useLanguage();

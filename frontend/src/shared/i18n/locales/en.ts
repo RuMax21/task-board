@@ -1,3 +1,5 @@
+import { success } from 'zod';
+
 export const en = {
   common: {
     processing: {
@@ -14,6 +16,7 @@ export const en = {
       save: 'Save',
       register: 'Register',
       login: 'Login',
+      logout: 'Logout',
     },
   },
 
@@ -52,5 +55,16 @@ export const en = {
 
   error: {
     noTasks: 'No found tasks',
+  },
+
+  success: {
+    logout: `You're logged out`,
+    signup: 'Successful registration',
+    login: 'Successful login',
+  },
+
+  links: {
+    tasks: 'Tasks',
+    profile: 'Profile',
   },
 } as const;
