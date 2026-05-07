@@ -1,3 +1,4 @@
+import { changePassword } from '@/features/Auth/api';
 import { success } from 'zod';
 
 export const en = {
@@ -7,6 +8,7 @@ export const en = {
       removing: 'Removing..',
       registering: 'Registering..',
       logining: 'Logining..',
+      changePassword: 'Changing password...',
     },
     btn: {
       back: 'Back to list',
@@ -17,6 +19,7 @@ export const en = {
       register: 'Register',
       login: 'Login',
       logout: 'Logout',
+      changePassword: 'Change password',
     },
   },
 
@@ -53,8 +56,24 @@ export const en = {
     },
   },
 
+  changePassword: {
+    title: 'Change password',
+    currentPasswordLabel: 'Current password',
+    currentPasswordPlaceholder: 'Your current password',
+    newPasswordLabel: 'New password',
+    newPasswordPlaceholder: 'Your new password',
+  },
+
+  profile: {
+    title: 'Profile',
+    nickname: 'Nickname',
+    email: 'Email',
+    role: 'Your role',
+  },
+
   error: {
     noTasks: 'No found tasks',
+    changePassword: 'Change password error',
   },
 
   success: {

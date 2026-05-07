@@ -34,5 +34,17 @@ export const registerSchema = z
   })
   .transform(({ confirmPassword, ...rest }) => rest);
 
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(8, 'Minimum 8 characters'),
+  newPassword: z
+    .string()
+    .min(8, 'Minimum 8 characters')
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[^\s]{8,}$/,
+      'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character',
+    ),
+});
+
 export type LoginFormData = z.infer<typeof loginSchema>;
 export type RegisterFormData = z.infer<typeof registerSchema>;
+export type ChangePasswordFormData = z.infer<typeof changePasswordSchema>;
