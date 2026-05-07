@@ -9,6 +9,7 @@ import {
 } from '@/entities/task/model';
 import type { ReactElement } from 'react';
 import { useLanguage } from '@/shared/i18n';
+import { useAssigneeOptions } from '../hooks/useAssigneeOptions';
 
 export function TaskForm({
   defaultValues,
@@ -22,6 +23,7 @@ export function TaskForm({
   });
   const { register } = form;
   const { text } = useLanguage();
+  const assigneeOptions = useAssigneeOptions();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -52,6 +54,11 @@ export function TaskForm({
         label={text.task.form.visibilityLabel}
         options={VISIBILITY_OPTIONS}
         {...register('visibility')}
+      />
+      <FormSelect
+        label={text.task.form.assigneeLabel}
+        options={assigneeOptions}
+        {...register('assigneeId')}
       />
 
       <div>

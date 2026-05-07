@@ -16,6 +16,7 @@ export function useTaskForm({
       status: 'TODO',
       priority: 'LOW',
       visibility: 'ANYONE',
+      assigneeId: '',
       ...defaultValues,
     },
   });

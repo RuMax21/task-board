@@ -12,3 +12,8 @@ export interface UseCreateTaskFormReturn {
   handleSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
   errors: string | unknown;
 }
+
+export interface UseAssigneeOptionsReturn {
+  value: string;
+  label: string;
+}

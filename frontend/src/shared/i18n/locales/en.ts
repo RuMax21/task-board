@@ -36,6 +36,7 @@ export const en = {
       statusLabel: 'Status',
       priorityLabel: 'Priority',
       visibilityLabel: 'Visibility',
+      assigneeLabel: 'Assignee',
     },
     noTasks: 'No tasks yet',
   },
