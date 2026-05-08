@@ -1,6 +1,3 @@
-import { changePassword } from '@/features/Auth/api';
-import { success } from 'zod';
-
 export const en = {
   common: {
     processing: {
@@ -20,6 +17,8 @@ export const en = {
       login: 'Login',
       logout: 'Logout',
       changePassword: 'Change password',
+      approveTask: 'Approve',
+      rejectTask: 'Reject',
     },
   },
 
@@ -39,6 +38,7 @@ export const en = {
       assigneeLabel: 'Assignee',
     },
     noTasks: 'No tasks yet',
+    assigned: 'Assigned',
   },
 
   auth: {
@@ -86,5 +86,10 @@ export const en = {
   links: {
     tasks: 'Tasks',
     profile: 'Profile',
+  },
+
+  modal: {
+    refusal: 'Reason for refusal:',
+    blockAssigner: 'Do you wanna block a assigner?',
   },
 } as const;

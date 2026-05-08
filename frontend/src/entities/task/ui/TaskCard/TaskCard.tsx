@@ -1,12 +1,14 @@
 import { useDraggable } from '@dnd-kit/react';
-import { TASK_PRIORITY_LABELS } from '../../model';
+import { ASSIGNMENT_STATUS_LABELS, TASK_PRIORITY_LABELS } from '../../model';
 import type { TaskCardProps } from './types';
+import { TaskAssignment } from '@/features/TaskAssignment';
+import { useLanguage } from '@/shared/i18n';
 
 export function TaskCard({ task, onClick }: TaskCardProps): React.ReactNode {
   const { ref, listeners, attributes } = useDraggable({
     id: task.id,
   });
-
+  const { text } = useLanguage();
   return (
     <div ref={ref} {...listeners} {...attributes}>
       <div onClick={() => onClick?.(task)}>
@@ -18,7 +20,15 @@ export function TaskCard({ task, onClick }: TaskCardProps): React.ReactNode {
 
       <div>
         <span>{TASK_PRIORITY_LABELS[task.priority]}</span>
-        {task.assignedId && <span>assigned</span>}
+        <span>
+          {text.task.assigned}[{task.assignmentStatus}]:{' '}
+          {task.assignee?.nickname}
+        </span>
+
+        {task.assignmentStatus ===
+          ASSIGNMENT_STATUS_LABELS.PENDING.toUpperCase() && (
+          <TaskAssignment task={task} />
+        )}
       </div>
     </div>
   );
