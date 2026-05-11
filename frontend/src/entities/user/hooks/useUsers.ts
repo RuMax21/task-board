@@ -1,10 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
-import { getUsers } from '../api';
+import { getUsers, getUsersViaAdmin } from '../api';
 import type { UseUsersReturn } from './types';
 
 export function useUsers(): UseUsersReturn {
-  return useQuery({
+  const usersViaAdmin = useQuery({
+    queryKey: ['admin', 'users'],
+    queryFn: getUsersViaAdmin,
+  });
+
+  const users = useQuery({
     queryKey: ['users'],
     queryFn: getUsers,
   });
+
+  return {
+    usersViaAdmin,
+    users,
+  };
 }

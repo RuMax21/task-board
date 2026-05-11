@@ -13,6 +13,7 @@
     "@dnd-kit/react": "^0.4.0",
     "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-query": "^5.99.0",
+    "@tanstack/react-table": "^8.21.3",
     "axios": "^1.15.0",
     "jwt-decode": "^4.0.0",
     "react": "^19.2.4",
