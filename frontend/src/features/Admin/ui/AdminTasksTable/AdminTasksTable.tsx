@@ -15,7 +15,7 @@ export function AdminTasksTable(): ReactElement {
     <Table
       rows={tasks}
       columns={columns}
-      onRowClick={data => navigate(ROUTE_PATHS.taskDetails(data.id))}
+      // onRowClick={data => navigate(ROUTE_PATHS.taskDetails(data.id))}
     />
   );
 }
