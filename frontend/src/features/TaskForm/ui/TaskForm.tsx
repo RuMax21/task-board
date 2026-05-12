@@ -17,6 +17,7 @@ export function TaskForm({
   onSubmit,
   isSubmitting,
   onCancel,
+  isEdit,
 }: TaskFormProps): ReactElement {
   const { form, handleSubmit, errors } = useTaskForm({
     defaultValues,
@@ -56,11 +57,13 @@ export function TaskForm({
         options={VISIBILITY_OPTIONS}
         {...register('visibility')}
       />
-      <FormSelect
-        label={text.task.form.assigneeLabel}
-        options={assigneeOptions}
-        {...register('assigneeId')}
-      />
+      {!isEdit && (
+        <FormSelect
+          label={text.task.form.assigneeLabel}
+          options={assigneeOptions}
+          {...register('assigneeId')}
+        />
+      )}
 
       <div className={styles.actions}>
         <Button type="button" onClick={onCancel}>

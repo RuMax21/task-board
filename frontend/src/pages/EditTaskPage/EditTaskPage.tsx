@@ -6,6 +6,7 @@ import { useLanguage } from '@/shared/i18n';
 import type { ReactElement } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import styles from './EditTaskPage.module.scss';
+import { prepareUpdateTaskData } from '@/features/TaskForm/utils';
 
 export default function EditTaskPage(): ReactElement {
   const { text } = useLanguage();
@@ -16,7 +17,13 @@ export default function EditTaskPage(): ReactElement {
 
   const handleSubmit = (data: UpdateTaskRequest): void => {
     updateTask(
-      { id: id!, data: { ...data, viewerUserIds: task?.viewerUserIds ?? [] } },
+      {
+        id: id!,
+        data: {
+          ...prepareUpdateTaskData(data),
+          viewerUserIds: task?.viewerUserIds ?? [],
+        },
+      },
       {
         onSuccess: () => {
           navigate(ROUTE_PATHS.taskDetails(id!));
@@ -42,6 +49,7 @@ export default function EditTaskPage(): ReactElement {
         onSubmit={handleSubmit}
         isSubmitting={isPending}
         onCancel={() => navigate(`/tasks/${id}`)}
+        isEdit={true}
       />
     </section>
   );

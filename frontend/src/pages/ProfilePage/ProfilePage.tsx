@@ -18,7 +18,7 @@ export default function ProfilePage(): ReactElement {
       <h1 className={styles.heading}>{text.profile.title}</h1>
       <div className={styles.info}>
         {profileInfo.map(info => (
-          <div className={styles.row}>
+          <div className={styles.row} key={info.label}>
             <span className={styles.rowLabel}>{info.label}</span>
             <span className={styles.rowValue}>{info.value}</span>
           </div>

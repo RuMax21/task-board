@@ -11,6 +11,7 @@ export interface UseCreateTaskFormReturn {
   form: UseFormReturn<TaskFormData>;
   handleSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
   errors: string | unknown;
+  isEdit?: boolean;
 }
 
 export interface UseAssigneeOptionsReturn {
