@@ -1,5 +1,5 @@
-@use '../../../app/styles/variables' as *;
-@use '../../../app/styles/mixins' as *;
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
 
 .field {
   display: flex;
@@ -17,7 +17,7 @@
   letter-spacing: 0.02em;
 }
 
-.input {
+.select {
   width: 100%;
   padding: $space-2;
   border: 1.5px solid $color-border;
@@ -28,6 +28,9 @@
   background: $color-surface;
   transition: $transition-fast;
   outline: none;
+  appearance: none;
+  padding-right: $space-6;
+  cursor: pointer;
 
   &::placeholder {
     color: $color-text-muted;
@@ -41,19 +44,4 @@
     border-color: $color-primary;
     box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
   }
-}
-
-.inputError {
-  border-color: $color-danger;
-
-  &:focus {
-    border-color: $color-danger;
-    box-shadow: 0 0 0 3px rgba($color-danger, 0.12);
-  }
-}
-
-.error {
-  font-size: $font-size-xs;
-  color: $color-danger;
-  font-weight: $font-weight-medium;
 }

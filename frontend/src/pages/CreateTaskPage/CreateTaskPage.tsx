@@ -4,6 +4,7 @@ import { TaskForm } from '@/features/TaskForm/ui';
 import { ROUTES } from '@/shared/config';
 import { useLanguage } from '@/shared/i18n';
 import { useNavigate } from 'react-router';
+import styles from './CreateTaskPage.module.scss';
 
 export default function CreateTaskPage(): React.ReactNode {
   const { text } = useLanguage();
@@ -19,8 +20,8 @@ export default function CreateTaskPage(): React.ReactNode {
   };
 
   return (
-    <section>
-      <h1>{text.task.create}</h1>
+    <section className={styles.section}>
+      <h1 className={styles.heading}>{text.task.create}</h1>
       <TaskForm
         onSubmit={handleSubmit}
         isSubmitting={isPending}

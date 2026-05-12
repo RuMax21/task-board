@@ -2,23 +2,29 @@ import { useAuthStore } from '@/features/Auth/model';
 import { ChangePasswordForm } from '@/features/Auth/ui/ChangePasswordForm/ChangePasswordForm';
 import { useLanguage } from '@/shared/i18n';
 import type { ReactElement } from 'react';
+import styles from './ProfilePage.module.scss';
 
 export default function ProfilePage(): ReactElement {
   const { text } = useLanguage();
   const { user } = useAuthStore();
+  const profileInfo = [
+    { label: text.profile.nickname, value: user?.nickname },
+    { label: text.profile.email, value: user?.email },
+    { label: text.profile.role, value: user?.role },
+  ];
 
   return (
-    <section>
-      <h1>{text.profile.title}</h1>
-      <p>
-        {text.profile.nickname}: {user?.nickname}
-      </p>
-      <p>
-        {text.profile.email}: {user?.email}
-      </p>
-      <p>
-        {text.profile.role}: {user?.role}
-      </p>
+    <section className={styles.section}>
+      <h1 className={styles.heading}>{text.profile.title}</h1>
+      <div className={styles.info}>
+        {profileInfo.map(info => (
+          <div className={styles.row}>
+            <span className={styles.rowLabel}>{info.label}</span>
+            <span className={styles.rowValue}>{info.value}</span>
+          </div>
+        ))}
+      </div>
+      <div className={styles.divider} />
       <ChangePasswordForm />
     </section>
   );

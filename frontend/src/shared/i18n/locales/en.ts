@@ -25,7 +25,7 @@ export const en = {
   task: {
     title: 'Tasks',
     edit: 'Edit task',
-    create: 'Create a new task',
+    create: '+ Create a new task',
     notFound: 'Task not found',
     form: {
       titleLabel: 'Title',

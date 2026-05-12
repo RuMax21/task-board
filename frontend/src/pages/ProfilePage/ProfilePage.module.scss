@@ -1,0 +1,41 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.section {
+  @include page-section;
+  max-width: 600px;
+}
+
+.heading {
+  @include heading-1;
+  margin-bottom: $space-6;
+}
+
+.info {
+  @include card($radius-lg, $shadow-sm);
+  padding: $space-6 $space-8;
+  @include flex(column, flex-start, flex-start, $space-3);
+  margin-bottom: $space-8;
+}
+
+.row {
+  @include flex(row, baseline, flex-start, $space-2);
+  font-size: $font-size-md;
+}
+
+.rowLabel {
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  min-width: 80px;
+}
+
+.rowValue {
+  color: $color-text;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $color-border;
+  margin: $space-2 0;
+}

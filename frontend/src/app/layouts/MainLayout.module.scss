@@ -1,0 +1,19 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $navbar-height;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-xs;
+}
+
+.main {
+  flex: 1;
+  padding-top: $space-6;
+  padding-bottom: $space-10;
+  background: $color-bg;
+}

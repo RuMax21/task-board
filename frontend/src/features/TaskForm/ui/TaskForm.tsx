@@ -10,6 +10,7 @@ import {
 import type { ReactElement } from 'react';
 import { useLanguage } from '@/shared/i18n';
 import { useAssigneeOptions } from '../hooks/useAssigneeOptions';
+import styles from './TaskForm.module.scss';
 
 export function TaskForm({
   defaultValues,
@@ -26,7 +27,7 @@ export function TaskForm({
   const assigneeOptions = useAssigneeOptions();
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <FormField
         label={text.task.form.titleLabel}
         placeholder={text.task.form.titlePlaceholder}
@@ -61,7 +62,7 @@ export function TaskForm({
         {...register('assigneeId')}
       />
 
-      <div>
+      <div className={styles.actions}>
         <Button type="button" onClick={onCancel}>
           {text.common.btn.cancel}
         </Button>

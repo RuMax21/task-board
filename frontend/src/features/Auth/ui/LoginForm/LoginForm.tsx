@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { useLoginForm } from './useLoginForm';
 import type { ReactElement } from 'react';
 import { useLanguage } from '@/shared/i18n';
+import styles from '../AuthForm.module.scss';
 
 export function LoginForm(): ReactElement {
   const { text } = useLanguage();
@@ -15,7 +16,11 @@ export function LoginForm(): ReactElement {
   } = form;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="post">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      method="post"
+      className={styles.form}
+    >
       <FormField
         label={text.auth.form.nicknameLabel}
         placeholder={text.auth.form.nicknamePlaceholder}
@@ -31,11 +36,11 @@ export function LoginForm(): ReactElement {
         {...register('password')}
       />
 
-      <Button type="submit" disabled={isLoading}>
+      <Button type="submit" disabled={isLoading} className={styles.submitBtn}>
         {isLoading ? text.common.processing.logining : text.common.btn.login}
       </Button>
 
-      <p>
+      <p className={styles.footer}>
         {text.auth.dontHaveAccount}
         <Link to={ROUTES.REGISTER}>{text.auth.signup}</Link>
       </p>

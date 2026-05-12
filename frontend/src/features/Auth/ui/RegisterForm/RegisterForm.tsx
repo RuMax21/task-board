@@ -4,6 +4,7 @@ import { useRegisterForm } from './useRegisterForm';
 import { ROUTES } from '@/shared/config';
 import type { ReactElement } from 'react';
 import { useLanguage } from '@/shared/i18n';
+import styles from '../AuthForm.module.scss';
 
 export function RegisterForm(): ReactElement {
   const { text } = useLanguage();
@@ -15,7 +16,11 @@ export function RegisterForm(): ReactElement {
   } = form;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="post">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      method="post"
+      className={styles.form}
+    >
       <FormField
         label={text.auth.form.nicknameLabel}
         placeholder={text.auth.form.nicknamePlaceholder}
@@ -34,6 +39,7 @@ export function RegisterForm(): ReactElement {
         label={text.auth.form.passwordLabel}
         placeholder={text.auth.form.passwordPlaceholder}
         error={errors.password}
+        type="password"
         {...register('password')}
       />
 
@@ -41,16 +47,17 @@ export function RegisterForm(): ReactElement {
         label={text.auth.form.confirmPasswordLabel}
         placeholder={text.auth.form.passwordPlaceholder}
         error={errors.confirmPassword}
+        type="password"
         {...register('confirmPassword')}
       />
 
-      <Button type="submit" disabled={isLoading}>
+      <Button type="submit" disabled={isLoading} className={styles.submitBtn}>
         {isLoading
           ? text.common.processing.registering
           : text.common.btn.register}
       </Button>
 
-      <p>
+      <p className={styles.footer}>
         {text.auth.haveAccount}
         <Link to={ROUTES.LOGIN}>{text.auth.login}</Link>
       </p>

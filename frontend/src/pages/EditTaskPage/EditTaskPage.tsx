@@ -5,6 +5,7 @@ import { ROUTE_PATHS } from '@/shared/config';
 import { useLanguage } from '@/shared/i18n';
 import type { ReactElement } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import styles from './EditTaskPage.module.scss';
 
 export default function EditTaskPage(): ReactElement {
   const { text } = useLanguage();
@@ -28,8 +29,8 @@ export default function EditTaskPage(): ReactElement {
   if (error || !task) return <p>{text.task.notFound}</p>;
 
   return (
-    <section>
-      <h2>{text.task.edit}</h2>
+    <section className={styles.section}>
+      <h2 className={styles.heading}>{text.task.edit}</h2>
       <TaskForm
         defaultValues={{
           title: task.title,

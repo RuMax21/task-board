@@ -1,0 +1,17 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.section {
+  @include page-section;
+}
+
+.topBar {
+  @include flex-between;
+  margin-bottom: $space-6;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.heading {
+  @include heading-1;
+}

@@ -1,0 +1,86 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.card {
+  @include card($radius-md, $shadow-xs);
+  padding: $space-4;
+  cursor: grab;
+  transition: $transition-base;
+  user-select: none;
+
+  &:hover {
+    box-shadow: $shadow-sm;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    cursor: grabbing;
+    transform: translateY(0);
+    box-shadow: $shadow-md;
+    opacity: 0.85;
+  }
+}
+
+.header {
+  @include flex(row, flex-start, space-between, $space-2);
+  margin-bottom: $space-2;
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+  line-height: $line-height-tight;
+  @include truncate;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $space-3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  @include flex(row, center, space-between, $space-2);
+  flex-wrap: wrap;
+  margin-top: $space-3;
+  padding-top: $space-3;
+  border-top: 1px solid $color-border-light;
+}
+
+.priority {
+  @include badge($color-border-light, $color-text-secondary);
+
+  &--LOW {
+    @include badge(#f0fdf4, #16a34a);
+  }
+  &--MEDIUM {
+    @include badge(#fffbeb, #b45309);
+  }
+  &--HIGH {
+    @include badge(#fef2f2, #dc2626);
+  }
+}
+
+.assignee {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  @include truncate;
+  max-width: 140px;
+}
+
+.assignment {
+  @include flex(row, center, flex-start, $space-2);
+  margin-top: $space-3;
+  flex-wrap: wrap;
+}

@@ -1,4 +1,5 @@
 import type { FormSelectProps } from './types';
+import styles from './FormSelect.module.scss';
 
 export function FormSelect({
   label,
@@ -6,9 +7,9 @@ export function FormSelect({
   ...props
 }: FormSelectProps): React.ReactNode {
   return (
-    <div>
-      <label>{label}</label>
-      <select {...props}>
+    <div className={styles.field}>
+      <label className={styles.label}>{label}</label>
+      <select className={styles.select} {...props}>
         {options.map(element => (
           <option key={element.value} value={element.value}>
             {element.label}

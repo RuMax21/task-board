@@ -2,6 +2,7 @@ import { Button, FormField } from '@/shared/ui';
 import type { ReactElement } from 'react';
 import { useChangePasswordForm } from './useChangePasswordForm';
 import { useLanguage } from '@/shared/i18n';
+import styles from './ChangePasswordForm.module.scss';
 
 export function ChangePasswordForm(): ReactElement {
   const { text } = useLanguage();
@@ -13,8 +14,12 @@ export function ChangePasswordForm(): ReactElement {
   } = form;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="patch">
-      <h2>{text.changePassword.title}</h2>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit(onSubmit)}
+      method="patch"
+    >
+      <h2 className={styles.title}>{text.changePassword.title}</h2>
       <FormField
         label={text.changePassword.currentPasswordLabel}
         placeholder={text.changePassword.currentPasswordPlaceholder}

@@ -1,0 +1,27 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.wrapper {
+  @include flex(row, center, flex-start, $space-2);
+  flex-wrap: wrap;
+}
+
+.approve {
+  background: $color-success !important;
+  border-color: $color-success !important;
+
+  &:hover:not(:disabled) {
+    background: darken($color-success, 8%) !important;
+    border-color: darken($color-success, 8%) !important;
+  }
+}
+
+.reject {
+  background: transparent !important;
+  color: $color-danger !important;
+  border-color: $color-danger !important;
+
+  &:hover:not(:disabled) {
+    background: $color-danger-light !important;
+  }
+}

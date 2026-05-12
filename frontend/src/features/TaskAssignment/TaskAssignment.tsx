@@ -8,6 +8,7 @@ import { useLanguage } from '@/shared/i18n';
 import type { ReactNode } from 'react';
 import type { TaskAssignmentProps } from './types';
 import { ASSIGNMENT_STATUS_LABELS } from '@/entities/task/model';
+import styles from './TaskAssignment.module.scss';
 
 export function TaskAssignment({ task }: TaskAssignmentProps): ReactNode {
   const userId = useAuthStore(state => state.user?.id);
@@ -32,11 +33,19 @@ export function TaskAssignment({ task }: TaskAssignmentProps): ReactNode {
     return null;
 
   return (
-    <div>
-      <Button onClick={handleApproveTask} disabled={isApproving}>
+    <div className={styles.wrapper}>
+      <Button
+        className={styles.approve}
+        onClick={handleApproveTask}
+        disabled={isApproving}
+      >
         {text.common.btn.approveTask}
       </Button>
-      <Button onClick={handleRejectTask} disabled={isRejecting}>
+      <Button
+        className={styles.reject}
+        onClick={handleRejectTask}
+        disabled={isRejecting}
+      >
         {text.common.btn.rejectTask}
       </Button>
     </div>

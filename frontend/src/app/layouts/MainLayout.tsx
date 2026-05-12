@@ -5,6 +5,7 @@ import { useLanguage } from '@/shared/i18n';
 import { NavBar } from '@/widgets/NavBar';
 import type { ReactElement } from 'react';
 import { Outlet } from 'react-router';
+import styles from './MainLayout.module.scss';
 
 export default function MainLayout(): ReactElement {
   const user = useAuthStore(state => state.user);
@@ -22,14 +23,14 @@ export default function MainLayout(): ReactElement {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <NavBar
           links={links}
           onLogout={onLogout}
           logoutText={text.common.btn.logout}
         />
       </header>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
     </>
