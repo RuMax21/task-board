@@ -6,4 +6,5 @@ export interface TaskFormProps {
   onSubmit: (data: CreateTaskRequest) => void;
   isSubmitting: boolean;
   onCancel: () => void;
+  isEdit?: boolean;
 }

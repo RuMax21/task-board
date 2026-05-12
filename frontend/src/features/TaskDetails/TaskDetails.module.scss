@@ -1,0 +1,72 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.section {
+  @include page-section;
+  @include flex(column, stretch, flex-start, $space-6);
+}
+
+.header {
+  @include flex(row, center, space-between);
+  flex-wrap: wrap;
+  gap: $space-3;
+}
+
+.headerActions {
+  @include flex(row, center, flex-end, $space-3);
+}
+
+.info {
+  @include card($radius-lg, $shadow-sm);
+  padding: $space-8;
+  @include flex(column, flex-start, flex-start, $space-4);
+}
+
+.taskTitle {
+  @include heading-1;
+}
+
+.description {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.meta {
+  @include flex(row, center, flex-start, $space-3);
+  flex-wrap: wrap;
+  margin-top: $space-2;
+}
+
+.statusBadge {
+  @include badge($color-primary-light, $color-primary);
+
+  &--TODO {
+    @include badge(#f1f5f9, #64748b);
+  }
+  &--IN_PROGRESS {
+    @include badge($color-warning-light, $color-warning);
+  }
+  &--DONE {
+    @include badge($color-success-light, $color-success);
+  }
+}
+
+.priorityBadge {
+  @include badge($color-border-light, $color-text-secondary);
+
+  &--LOW {
+    @include badge(#f0fdf4, #16a34a);
+  }
+  &--MEDIUM {
+    @include badge(#fffbeb, #b45309);
+  }
+  &--HIGH {
+    @include badge(#fef2f2, #dc2626);
+  }
+}
+
+.date {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}

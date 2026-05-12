@@ -1,0 +1,31 @@
+@use '../../../app/styles/variables' as *;
+@use '../../../app/styles/mixins' as *;
+
+.column {
+  @include flex(column, stretch, flex-start, $space-3);
+  min-width: 300px;
+  width: 300px;
+  flex-shrink: 0;
+  background: $color-surface-alt;
+  border-radius: $radius-lg;
+  border: 1.5px solid $color-border;
+  padding: $space-4;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.header {
+  @include flex(row, center, space-between);
+  padding-bottom: $space-3;
+  border-bottom: 1.5px solid $color-border;
+  margin-bottom: $space-1;
+}
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+}

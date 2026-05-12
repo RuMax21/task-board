@@ -1,0 +1,16 @@
+@use '../../app/styles/variables' as *;
+@use '../../app/styles/mixins' as *;
+
+.page {
+  @include auth-page;
+}
+
+.card {
+  @include form-card;
+}
+
+.heading {
+  @include heading-1;
+  text-align: center;
+  margin-bottom: $space-6;
+}

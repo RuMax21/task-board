@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import { taskFormSchema, type TaskFormData } from '../model/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { UseCreateTaskFormReturn, UseCreateTaskOptions } from './types';
-import type { CreateTaskRequest } from '@/entities/task/model';
 
 export function useTaskForm({
   defaultValues,
@@ -16,13 +15,12 @@ export function useTaskForm({
       status: 'TODO',
       priority: 'LOW',
       visibility: 'ANYONE',
+      assigneeId: '',
       ...defaultValues,
     },
   });
 
-  const handleSubmit = form.handleSubmit(data =>
-    onSubmit(data as CreateTaskRequest),
-  );
+  const handleSubmit = form.handleSubmit(data => onSubmit(data));
 
   return {
     form,

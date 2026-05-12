@@ -1,5 +1,6 @@
 import { apiClient } from '@/shared/api';
 import type {
+  AssignTaskRequest,
   CreateTaskRequest,
   RejectAssignmentRequest,
   RejectTaskVariables,
@@ -73,5 +74,13 @@ export const removeTagFromTask = async (
   tagId: string,
 ): Promise<Task> => {
   const res = await apiClient.delete<Task>(`/tasks/${id}/tags/${tagId}`);
+  return res.data;
+};
+
+export const assignTask = async (
+  id: string,
+  data: AssignTaskRequest,
+): Promise<Task> => {
+  const res = await apiClient.post<Task>(`/tasks/${id}/assignment`, data);
   return res.data;
 };

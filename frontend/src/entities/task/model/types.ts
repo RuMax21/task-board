@@ -17,13 +17,18 @@ export interface Task {
   priority: TaskPriority;
   visibility: TaskVisibility;
   creator: string;
-  assignee: string | null;
+  assignee: TaskAssignee | null;
   assignmentStatus: AssignedStatus;
-  assignedId: string | null;
   viewerUserIds: string[];
   tags: Tag[];
   createdAt: string;
   updatedAt: string;
+}
+
+export interface TaskAssignee {
+  id: string;
+  nickname: string;
+  email: string;
 }
 
 export interface TaskListResponse {
@@ -79,4 +84,13 @@ export interface UpdateTaskStatusVariables {
 export interface RejectTaskVariables {
   id: string;
   data: RejectAssignmentRequest;
+}
+
+export interface AssignTaskRequest {
+  assigneeId: string;
+}
+
+export interface AssignTaskVariables {
+  id: string;
+  data: AssignTaskRequest;
 }

@@ -7,6 +7,7 @@ export const taskFormSchema = z.object({
   status: z.enum(STATUSES).optional(),
   priority: z.enum(PRIORITIES).optional(),
   visibility: z.enum(VISIBILITIES).optional(),
+  assigneeId: z.string().optional(),
 });
 
 export type TaskFormData = z.infer<typeof taskFormSchema>;

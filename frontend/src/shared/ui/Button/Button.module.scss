@@ -1,0 +1,87 @@
+@use '../../../app/styles/variables' as *;
+@use '../../../app/styles/mixins' as *;
+
+.button {
+  @include flex-center;
+  @include focus-ring;
+
+  gap: $space-2;
+  padding: $space-2 + 2px $space-5;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  font-family: $font-family;
+  line-height: 1;
+  border: 1.5px solid transparent;
+  transition: $transition-base;
+  white-space: nowrap;
+  user-select: none;
+
+  background: $color-primary;
+  color: $color-text-inverse;
+  border-color: $color-primary;
+  box-shadow: $shadow-xs;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+    border-color: $color-primary-hover;
+    box-shadow: $shadow-sm;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+
+  &--outlined {
+    background: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-light;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-text-secondary;
+    border-color: $color-border;
+
+    &:hover:not(:disabled) {
+      background: $color-surface-alt;
+      color: $color-text;
+    }
+  }
+
+  &--danger {
+    background: $color-danger;
+    border-color: $color-danger;
+
+    &:hover:not(:disabled) {
+      background: $color-danger-hover;
+      border-color: $color-danger-hover;
+    }
+  }
+
+  &--sm {
+    padding: $space-1 + 2px $space-3;
+    font-size: $font-size-sm;
+    border-radius: $radius-sm;
+  }
+
+  &--lg {
+    padding: $space-3 + 2px $space-8;
+    font-size: $font-size-md;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}

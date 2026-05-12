@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router';
 import { Button } from '@/shared/ui';
 import { useLanguage } from '@/shared/i18n';
 import { ROUTE_PATHS, ROUTES } from '@/shared/config';
-import { KanbanBoard } from '@/widget/KanbanBoard';
+import { KanbanBoard } from '@/widgets/KanbanBoard';
+import styles from './TaskPage.module.scss';
 
 export default function TaskPage(): React.ReactNode {
   const { text } = useLanguage();
@@ -19,9 +20,9 @@ export default function TaskPage(): React.ReactNode {
   if (error) return <p>{text.task.notFound}</p>;
 
   return (
-    <section>
-      <div>
-        <h1>{text.task.title}</h1>
+    <section className={styles.section}>
+      <div className={styles.topBar}>
+        <h1 className={styles.heading}>{text.task.title}</h1>
         <Button onClick={() => navigate(ROUTES.CREATE_TASK)}>
           {text.task.create}
         </Button>

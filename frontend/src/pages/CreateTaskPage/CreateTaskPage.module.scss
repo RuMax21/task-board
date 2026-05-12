@@ -1,0 +1,12 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.section {
+  @include page-section;
+  max-width: 720px;
+}
+
+.heading {
+  @include heading-1;
+  margin-bottom: $space-8;
+}

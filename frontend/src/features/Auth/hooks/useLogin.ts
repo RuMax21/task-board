@@ -5,11 +5,13 @@ import { useAuthStore, type LoginRequest } from '../model';
 import { login } from '../api';
 import { mapJwtToUser, parseJwt, tokenStorage } from '../lib';
 import type { UseLoginReturn } from './types';
+import { useLanguage } from '@/shared/i18n';
 
 export const useLogin = (): UseLoginReturn => {
   const queryClient = useQueryClient();
   const setUser = useAuthStore(state => state.setUser);
   const navigate = useNavigate();
+  const { text } = useLanguage();
 
   return useMutation({
     mutationFn: (data: LoginRequest) => login(data),
@@ -23,7 +25,7 @@ export const useLogin = (): UseLoginReturn => {
         setUser(user);
       }
       queryClient.clear();
-      toast.success('Successful login');
+      toast.success(text.success.login);
       navigate('/');
     },
     onError: (error: unknown) => {

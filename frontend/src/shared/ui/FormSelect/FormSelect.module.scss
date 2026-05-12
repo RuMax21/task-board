@@ -1,0 +1,47 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $space-2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  letter-spacing: 0.02em;
+}
+
+.select {
+  width: 100%;
+  padding: $space-2;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-family: $font-family;
+  color: $color-text;
+  background: $color-surface;
+  transition: $transition-fast;
+  outline: none;
+  appearance: none;
+  padding-right: $space-6;
+  cursor: pointer;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:hover {
+    border-color: darken($color-border, 10%);
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
+  }
+}

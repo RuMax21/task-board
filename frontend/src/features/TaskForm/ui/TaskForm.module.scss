@@ -1,0 +1,15 @@
+@use '@/app/styles/variables' as *;
+@use '@/app/styles/mixins' as *;
+
+.form {
+  @include flex(column, stretch, flex-start, $space-5);
+  width: 100%;
+  max-width: 640px;
+}
+
+.actions {
+  @include flex(row, center, flex-end, $space-3);
+  padding-top: $space-2;
+  border-top: 1px solid $color-border-light;
+  margin-top: $space-2;
+}

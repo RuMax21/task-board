@@ -5,6 +5,8 @@ export const ROUTES = {
   CREATE_TASK: '/tasks/create',
   TASK_DETAILS: '/tasks/:id',
   EDIT_TASK: '/tasks/:id/edit',
+  PROFILE: '/profile',
+  ADMIN: '/admin',
 };
 
 export const ROUTE_PATHS = {

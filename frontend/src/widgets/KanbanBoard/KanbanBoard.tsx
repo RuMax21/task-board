@@ -4,6 +4,7 @@ import { STATUSES, type TaskStatus } from '@/entities/task/model';
 import { KanbanColumn } from './ui/KanbanColumn';
 import type { ReactElement } from 'react';
 import type { KanbanProps } from './model/types';
+import styles from './KanbanBoard.module.scss';
 
 export function KanbanBoard({ tasks, onTaskClick }: KanbanProps): ReactElement {
   const { mutate: updateStatus } = useUpdateTaskStatus();
@@ -26,14 +27,16 @@ export function KanbanBoard({ tasks, onTaskClick }: KanbanProps): ReactElement {
 
   return (
     <DragDropProvider onDragEnd={handleDragEnd}>
-      {STATUSES.map(status => (
-        <KanbanColumn
-          key={status}
-          status={status}
-          tasks={tasks.filter(t => t.status === status)}
-          onTaskClick={onTaskClick}
-        />
-      ))}
+      <div className={styles.board}>
+        {STATUSES.map(status => (
+          <KanbanColumn
+            key={status}
+            status={status}
+            tasks={tasks.filter(t => t.status === status)}
+            onTaskClick={onTaskClick}
+          />
+        ))}
+      </div>
     </DragDropProvider>
   );
 }

@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 import { TaskDetailsHeader, TaskDetailsInfo } from './ui';
 import type { TaskDetailsProps } from './model';
+import styles from './TaskDetails.module.scss';
 
 export function TaskDetails({
   task,
@@ -10,7 +11,7 @@ export function TaskDetails({
   isRemoving,
 }: TaskDetailsProps): ReactElement {
   return (
-    <section>
+    <section className={styles.section}>
       <TaskDetailsHeader
         onRemove={onRemove}
         onEdit={onEdit}
