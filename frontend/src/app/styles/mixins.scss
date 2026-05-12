@@ -1,0 +1,89 @@
+@use 'variables' as *;
+
+@mixin flex($direction: row, $align: center, $justify: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin card($radius: $radius-lg, $shadow: $shadow-sm) {
+  background: $color-surface;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  border: 1px solid $color-border;
+}
+
+@mixin auth-page {
+  min-height: 100vh;
+  background: $color-bg;
+  @include flex-center;
+  padding: $space-6;
+}
+
+@mixin form-card {
+  @include card($radius-xl, $shadow-md);
+  padding: $space-10 $space-8;
+  width: 100%;
+  max-width: 440px;
+}
+
+@mixin page-section {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $space-8 $space-6;
+}
+
+@mixin heading-1 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: $line-height-tight;
+}
+
+@mixin heading-2 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: $line-height-tight;
+}
+
+@mixin badge($bg, $color) {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-2 + 2px;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  background: $bg;
+  color: $color;
+  letter-spacing: 0.02em;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

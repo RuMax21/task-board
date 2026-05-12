@@ -7,16 +7,17 @@ export function useUserModeration(): UseUserModerationReturn {
 
   const ban = useMutation({
     mutationFn: (userId: string) => banUser(userId),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['admin', 'users'] }),
   });
 
   const unban = useMutation({
     mutationFn: (userId: string) => unbanUser(userId),
     onSuccess: () =>
       queryClient.invalidateQueries({
-        queryKey: ['users'],
+        queryKey: ['admin', 'users'],
       }),
   });
 
-  return { ban, unban };
+  return { ban: ban.mutate, unban: unban.mutate };
 }

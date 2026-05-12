@@ -1,19 +1,19 @@
-import { useLogout } from '@/features/Auth/hooks/useLogout';
-import { ROUTES } from '@/shared/config';
-import { useLanguage } from '@/shared/i18n';
 import { Button } from '@/shared/ui';
 import type { ReactElement } from 'react';
 import { Link } from 'react-router';
+import type { NavBarProps } from './types';
 
-export function NavBar(): ReactElement {
-  const { text } = useLanguage();
-  const onLogout = useLogout();
-
+export function NavBar({
+  links,
+  onLogout,
+  logoutText,
+}: NavBarProps): ReactElement {
   return (
     <nav>
-      <Link to={ROUTES.TASKS}>{text.links.tasks}</Link>
-      <Link to={ROUTES.PROFILE}>{text.links.profile}</Link>
-      <Button onClick={onLogout}>{text.common.btn.logout}</Button>
+      {links.map(link => (
+        <Link to={link.to}>{link.label}</Link>
+      ))}
+      <Button onClick={onLogout}>{logoutText}</Button>
     </nav>
   );
 }

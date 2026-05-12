@@ -2,8 +2,9 @@ import { Navigate, Outlet } from 'react-router';
 import { tokenStorage } from '@/features/Auth/lib';
 import { useAuthStore } from '@/features/Auth/model';
 import { ROUTES } from '@/shared/config';
+import type { ReactNode } from 'react';
 
-export function PrivateRoute() {
+export function PrivateRoute(): ReactNode {
   const user = useAuthStore(state => state.user);
   const token = tokenStorage.get();
 

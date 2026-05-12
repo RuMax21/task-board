@@ -85,3 +85,12 @@ export interface RejectTaskVariables {
   id: string;
   data: RejectAssignmentRequest;
 }
+
+export interface AssignTaskRequest {
+  assigneeId: string;
+}
+
+export interface AssignTaskVariables {
+  id: string;
+  data: AssignTaskRequest;
+}

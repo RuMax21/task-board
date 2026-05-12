@@ -86,10 +86,46 @@ export const en = {
   links: {
     tasks: 'Tasks',
     profile: 'Profile',
+    admin: 'Admin Panel',
   },
 
   modal: {
     refusal: 'Reason for refusal:',
     blockAssigner: 'Do you wanna block a assigner?',
+  },
+
+  admin: {
+    adminPage: 'Admin Page',
+    users: 'Users',
+    tasks: 'Tasks',
+    usersTable: {
+      nicknameHeader: 'Nickname',
+      nicknameKey: 'nickname',
+      emailHeader: 'Email',
+      emailKey: 'email',
+      roleHeader: 'Role',
+      roleKey: 'role',
+      statusHeader: 'status',
+      statusCell: {
+        banned: 'banned',
+        active: 'active',
+      },
+      actionHeader: 'Actions',
+      actionCell: {
+        unban: 'unban',
+        ban: 'ban',
+      },
+    },
+    tasksTable: {
+      titleHeader: 'Title',
+      titleKey: 'title',
+      statusHeader: 'Status',
+      priorityHeader: 'Priority',
+      assigneeHeader: 'Assignee',
+      assigneePlaceholder: 'User ID',
+      actionHeader: 'Actions',
+      actionConfirm: 'Remove?',
+      actionBtn: 'Remove',
+    },
   },
 } as const;

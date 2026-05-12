@@ -1,4 +1,4 @@
-import type { UseMutationResult, UseQueryResult } from '@tanstack/react-query';
+import type { UseMutateFunction, UseQueryResult } from '@tanstack/react-query';
 import type { User, UserViaAdmin } from '../model';
 
 export type UseUsersReturn = {
@@ -6,6 +6,6 @@ export type UseUsersReturn = {
   users: UseQueryResult<User[], Error>;
 };
 export type UseUserModerationReturn = {
-  ban: UseMutationResult<void, Error, string, unknown>;
-  unban: UseMutationResult<void, Error, string, unknown>;
+  ban: UseMutateFunction<void, Error, string, unknown>;
+  unban: UseMutateFunction<void, Error, string, unknown>;
 };
