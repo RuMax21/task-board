@@ -2,7 +2,7 @@
 
 Full-stack task management application built.
 
-![alt text](image.png)
+![Task board Screenshot](screenshot.png)
 
 ## Overview
 
